@@ -1,0 +1,214 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : MDLC_Categorie_Arbre
+ major_version : 28
+ minor_version : 0
+ type : 65543
+ description : ""
+ subtype : 0
+page :
+ name : MDLC_Categorie_Arbre
+ identifier : 0x260409211c16304e
+ internal_properties : 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
+ properties : {}
+ controls :
+  -
+    name : MDLC_Categorie_Arbre
+    identifier : 0x260409211c17304e
+    internal_properties : CAAAAAgAAAB9PgF/939bOy0CuI0Z6q83lkb+LNOkzLmFMtrwngwcEj7XwNAvlkJ1CePfH7YBq0F8AWfHmBYhr3Me7NwcR7ZbBR6MY4LRyHY8n5OkhmvdbYBzu3C0qSrg84u8h5GWMsVQRW4RlsETXPZE6pCRAYzjQ0LqaieekGMvM1pSpKdoaLHuOTwgzKOwnJmBoGTGjbrTQXCqeBJc2y5Qn06AAo28IT6omHvu+cDgMR7Wk35QoxytQPMNlqk2TPyW2NI2HtgIP3rTzee6+jvAGgKiKjAU6gYzTFeAwbkIK1/GaO/Vr3mUSvRjQiYf3ZSwXRLRl03V/6HBsnDy2jTbVPPYlpTENiagtIG51VlodPsQ36uJuai78GapAqW6/TYbKO+/EUrlbAPScnpNaY7/Lqw9rzz9wu8pfUgGaRlk8LQhg037r9gHDjdmkDG3dvf6iRAHAkL+8wf/0bP+jqwDPKcHGc2X6yIOjwRcxH2jh8OW4/1/imfVO+Y6PriQEnHr+kzc5VfIU3hf+XC5KlmrW6pE8Xh/55rimEN1J4Qk8tEuAFb+wauaM5r+H2duSjMbjDTfZkkGZ+KIfVxKeuzOWdGTbRj6xgIr2ikQmE7DHhyUAjWGI8N2U/Af2yZ/rl0cY82TlJV3ZbiyfVTPPvbxsYxi8We3vhOugcUvtv75vjpL7fv/pW176nFlPXP5wqAD7ixzNPpEm4iV7avsElmhtOEDcanU/1ZazxUVL6pU9AREVfdfdAIQIT161Y/L7lvtTG5uMB1mQWOWz91CpfZhJkvCxBSIoczl8D24AraIdiBKH0Jrkm55JbRpmWze/rT58l5WEKGTftmnenfy6PKph6KCr29vYfqDZ+9/LUG9o4tktN4aAj5TcAc=
+    properties :
+     width : 290
+     height : 90
+    controls :
+     -
+       name : LIB_Catégories
+       identifier : 0x260409211c18304e
+       internal_properties : CAAAAAgAAABtcNmnS6Q3YknK7et89MrUUHkLiYCMPUZg0+hL51NgjAVqBNlZBoSpQcZxHSMg4mwVlRZBFQqx7yfby22HyJrzNMrq6czhO9bbcwcjNgw3pLpaZJSNV0z0cq417q7YxKOb3iN9CLknoKlgmwYZawHWxsAfsdR7tlb6e+vDnRhsgoASF15hFhBm09h+tvW4V5uW5u60v2q3OzqHzPUQbHT45h8+rsZV8mqlOhO0KmBcvNj+Yn8TecOAAAMGj8BE/H9qY/MXmnnZT0uVNT6DHgYx1q8zQCRfwVpyz5VyDXIHEF0NYPhvPihvC9g7j0K+KwMozwdkutYXJMWEZwmslj4nEp92c2B8mRIzvduru7JVp3I9WivnCb4VpetZOamK6Qm9lZOUM/JIf/ljgBMbi06YmQS5n+r+WOe+5yOJo2bvtVtXI2IIAuNO4/sW+ngO6in8jkdJ5oX3JKfhqgP0HClTsIQ4auW7u/oiSWs3cNxdPxFIoB0rHfeJauGv3E7x+RMTKhuG0/Rv9MI0RCuvJMIOmyLAKOaBVFmqxkNj2H4fpVE8bj/lm9HVbaGsvWHoGNuKWVKOXX2/em1FWYIC/9uS3gkWOwXE14AMYWWpaKUchEpVJiL1p2Qa/Wy/Fq6BOF+EJ+BZ6N1J9GxedBvWxBUnEK12JKFCvfbfw9QDVD34KEesHszS1kJikUXteGsGtr2X7VJ4fRrjxQ/OQtQ1JS1oIfdNujhvcqemnfLbY7zLg40sUUR0ajXe5OkxDZZYebX2VJa+qrwgyuCGVDsC5VWObzNxsbL28ou0t9YrxNu0Hd/WIvm8inO/vLwcfLnN+MNsg4JBj0oPMZ5v/Mh/hXcq900DY5QBavVWFhd4BlhK8+NI5GXsEbl1TFGzTCLyTUp/Euc8hDYXJUiPmyiGoilp/kSW5SNqM/2gL+MPKL6KwqUgDv6JIWPCN211/JapNQrANwRLUjhKnJldnC6/JdkGK6zlPl0lnlxPIy6++VEm8UwOx8Kc7fpv469hqiicyf/Vk6ifDQa9xCfXd6GyKzBqquOfWuiehKTA9ZQf/xfZnxI5OZY0WLIteE3vVsd6TQLNJvbdOFnu1U/lupKCO2bfJJMTCDzJZFynmoaokCwvqMZYmSQnv9WyMucuInNQKp6WlqmuKboDxX27esTWlVgqM6saj+1sqEPAqbYc7n6Uo02OlvlbtC1VFtWehVReZ3RuB5DtGTW+g/HCMBUFQ/U9Ha5vC64N4TqxSGp8Fosr+sciIfUwlW/xNB4CvSrGMqp5tKRifkPqCFFeCcYtMe4kiJU0qNXbPK0jUSC6e4oiOK6dGPl0PJwjquDM21CH7Vlnk3rfZLcmg5/zjelH+gvkqMljDVrM9DaUP5brP2NpODgUQBpI/U4R87gQlyHwZ7mjYLOETWS+SufXNQgn2niJy59EFVadEl+ZzbyoOOO4397kOzXRgGvS2AYceLdjGzzOqR8FFNVmOZCqV1rMq4Pz8Wy9RW2jsB59bxpUR5t6wAxirteAdwe5ArxEmusUqTXxZXm1Rb+A/39mAsmM2m5pvBCzWbbSn5nemmIr7mSO
+       properties :
+        width : 290
+        height : 29
+       type : 3
+       code_elements :
+        type_code : 2
+        alias : C1
+        p_codes : []
+     -
+       name : ARBRE_Catégories
+       identifier : 0x260409211c19304e
+       internal_properties : CAAAAAgAAACrMYmfIclaHCPFru3uPyT7KXWGJjZsANhEsQYEwn4sBKKn6ju8U1q7kB6n0FWTYpaIDiqTao7rFRfYJL07WtZRIBkMggCu6jtPf5QdJF56FDdF02J1JmYiST5tdFjS+WgPJ9xXh205pzlLdGw8BGmC4qD5duF9UsjGm0L4T5/Jn5RcGDo9yl6aR6K0olYFVsvTDLvvDLIDTz/Yla/h9jlBbKDPswC/vdtMggO4vNwC9duCA68Dx+OTRllfmi042WSo51vusRzmi4tBg0FsQ0qrVt52A4ZEsyoHHSnMAgbUYCt5btBUsLKaaW5+Fyoy9+al2CpYQP2doc3tS0bD79X9UVfx78cQPEJu7/pSPfFu8wJeUyI4sLhTEaV0ySOCH+YGTmVJdbR8kapeBkaPiwGi95fkJNJiZX0fFvcQsbwflXzh+TRcJ3e4WKcTC4/WjxEfZeOeso6sdtYrxjG/r9tbGJOOamIHCNpJXNnBwz9sr0Z17mR4hWb+5QQYbBUzaDPpwD+gQwaQAaWMHwVzTcVwxzRV7QDoqP4GlkISlxeltdecXcrepHRSy6egNowO58kiz8WuBBmG1PK2jRHQVLc3dx1G6CFzyLH3n/FWA/7G9gtgceu5daziyUXmynLz63D7N8JQSiCGEKMtvf+Yd9ps+KnFR+0LipvtPxadty9DJ1i+Oh56CeXr/QYYkrm3o2/MkHFT7XgPAqjQ/thREd1f8F7yJz9Md9gHiEAsPsYCu/FVmOUo1xHJtcq3j/NRBEu4ioNSMa+x/3QS82aDfDsxIKAIHzX9CwY39qB2RZe0CbADz6IIhZsNMeboPMzLRPfGTZIpjBsKyRoMVKRednSLuPbsDMRMrAT63Hl4j0RGNdfdS5VdoeZehRFZ7bZ//SmS9nM65ckbzD82gInXUbKL+H5Q5tgUFNJWQGba/2sCiJMn2PR3wsRhIje7+YrjMmPV+WmYZBfFuf1r80L3RPDaemupuXhX/xgA1FsLUKDhiF6v6fpA3EyVBE2/epaf3BCdsakpQ+QFvobseY+DnCw3ktgN+u2pMXYcDJh+g4msBy0ETA/F37UAXN9dtwDxjcX0Rw+BiRrOAoIRzDVu4+krgwhUemM+U/j1qoCqdmCQWrjch+1yFs9m/OvVU8Ws9DoJuzhHpkTn3JQodhsSy53qhXGFa5SCAvASdtYfjQ9PxFDcG3Cb0hKCj2MFCTKFUaAIzhRPNEYo2D1n0GkGkOM++urVXo5aOOsXYNgfnUQiCijC1BVcizmDFnR1NLijctQsABa2IAnPQR5RZgYk2pRX9u/Sun4WST2XvtiILB973L8K829GxbIqfAERP5q8uS5UYOe0cZQ4Bc89GJaMRbewxfSVJfjlinQHpNiR+twZxxe5PgQFztZ3CeOaHXKp+rWD5IZUeccpCVwOdwJrOx7itOPSWrGfNXccgO0z8IP9mE+mxiAEwJml4psmWE8FlBmKCGsHjlwcXAXAoSxiPOzrZYE1eMvqEmBZfbnxXrWw8tTo74zPvxGn+rxm6OPyrkMNVm7rVhf5TXBwrvRz+DGilKvxxnmlT3ADcLTHfTz0yO/3ghdyAfz/Nkj+5BtlYqBntsealTCC5tlS2PK1kI1FL9T+iMzTqXFh20uoo4QaHaUx2bj3TRcIlmLkRRxwOVapoF+s+s0B5rBZ77iEuNQxW3qsMSNcXX0zbOYEbyI+GiSErOpq9oo4bvMDPJC2twDmo0kDiIedroQLC6peX2dVbjNOAX22duWaApiMugc0RCTFoot4AF44TzAs35w+reS3pKg=
+       properties :
+        y : 37
+        width : 290
+        height : 50
+       type : 25
+       code_elements :
+        type_code : 25
+        alias : C2
+        p_codes :
+         -
+           code : |1-
+            
+           type : 851980
+         -
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           code : |1+
+            SI gCallbackClicCategorie<>Null ALORS
+            	gCallbackClicCategorie(ArbreRécupèreIdentifiant(ARBRE_Catégories,ArbreSelect(ARBRE_Catégories)))
+            FIN
+           type : 851984
+         -
+           type : 852149
+           role : N
+           enabled : false
+    type : 42
+    code_elements :
+     type_code : 92
+     alias : C3
+     p_codes :
+      -
+        code : |1+
+         gCallbackClicCategorie est une Procédure = Null
+        type : 851968
+      -
+        type : 852298
+        role : N
+      -
+        type : 851999
+        role : N
+      -
+        type : 852227
+        enabled : false
+      -
+        type : 1310979
+        enabled : false
+      -
+        type : 852228
+        role : N
+        enabled : false
+      -
+        type : 852217
+        role : N
+        enabled : false
+ type : 1
+ languages :
+  - fr-FR
+ code_elements :
+  type_code : 91
+  p_codes :
+   -
+     type : 852298
+     role : N
+   -
+     type : 851999
+     role : N
+   -
+     type : 852000
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852167
+   -
+     type : 852169
+     role : N
+   -
+     type : 852225
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852227
+   -
+     type : 1310979
+     enabled : false
+   -
+     type : 852228
+     role : N
+  procedures :
+   -
+     name : _RemplirArbreCatégorie
+     procedure_id : 1586403109238116104
+     type_code : 14
+     code : |1-
+      // Résumé : Remplit une branche de l'arbre des catégories et se rappelle récursivement
+      // Syntaxe :
+      //_RemplirArbreCatégorie (<nIDParent> est entier sur 8 octets, <sCheminEnCours> est chaîne)
+      //
+      // Paramètres :
+      //	nIDParent (entier sur 8 octets) :Identifiant de la branche courante
+      //	sCheminEnCours (chaîne ANSI) :<indiquez ici le rôle de sCheminEnCours>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE PRIVÉE _RemplirArbreCatégorie( nIDParent est un entier sur 8, sCheminEnCours est une chaîne )
+      
+      tabCategorie est un tableau d'entiers sur 8 octets = CCategorie::s_ListeEnfants(nIDParent)
+      clCateg est un CCategorie
+      nIDCatagorie est un entier sur 8
+      POUR TOUT nIDCatagorie DE tabCategorie 
+      	// Ajout d'une catégorie
+      	SI clCateg.bChargeInfo(nIDCatagorie) ALORS
+      		sChemin est une chaîne = sCheminEnCours + [TAB] + clCateg.m_sLibelléCatégorie
+      		
+      		// CheminImage retourne une URL absolue, il faut fournir une URL relative à ArbreAjoute
+      		// on doit donc calculer l'URL relative
+      		sImage est une chaîne = clCateg.CheminImage()
+      		sURLRelativeImage est une chaîne = sImage
+      		SI sImage<>"" ALORS
+      			sURLRelativeImage = sImage[[Taille(COL_UtilitaireSite.gsBaseURLSite)+1 À ]]
+      		FIN
+      
+      		ArbreAjoute(ARBRE_Catégories,sChemin,(sImage<>"" ? sURLRelativeImage SINON aDéfaut),(sImage<>"" ? sURLRelativeImage SINON aDéfaut),nIDCatagorie,aDernier,clCateg.m_sDescriptionCatégorie)
+      		
+      		
+      		
+      		taParam est un tableau associatif de chaînes = [ [ "id", nIDCatagorie ] ]
+      		SI gCallbackClicCategorie=Null ALORS
+      			ARBRE_Catégories[sChemin]..URL = ConstruitURL(pageadresse(categorie),taParam,Vrai)
+      		FIN
+      		
+      		// Appel récursif
+      		_RemplirArbreCatégorie(nIDCatagorie,sChemin)
+      	FIN
+      FIN
+     type : 458752
+   -
+     name : RemplirArbreCategorie
+     procedure_id : 1586691838364701716
+     type_code : 14
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //RemplirArbreCategorie (<nIDBase> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDBase (entier sur 8 octets) : <indiquez ici le rôle de nIDBase>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE RemplirArbreCategorie( nIDBase est un entier sur 8 octets )
+      
+      ArbreSupprimeTout(ARBRE_Catégories)
+      
+      _RemplirArbreCatégorie(nIDBase,"")
+      
+      LIB_Catégories..Visible = (ARBRE_Catégories..Occurrence>0)
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : MDLC_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fc50e8f1e0d0cd1
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+webification :
+ internal_properties : CAAAAAgAAACYzxT95H3qP7nIys4LqA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

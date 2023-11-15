@@ -1,0 +1,118 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CCommentaire
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x16057e020ac7c2b1
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      CCommentaire est une Classe
+      	m_nIDCommentaire est un entier sur 8 octets <MAPPING=IDCommentaire>
+      	m_sContenuCommentaire est une chaîne <MAPPING=ContenuCommentaire>
+      	m_dhDateCommentaire est une DateHeure <MAPPING=DateCommentaire>
+      	m_pclArticle est un CArticle dynamique
+      	m_pclAuteur est une CAuteur dynamique
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1586812990953931441
+     type_code : 27
+     code : |1+
+      PROCÉDURE Constructeur( pclArticle est un CArticle dynamique = Null, pclAuteur est un CAuteur dynamique = Null )
+      
+      m_pclArticle = pclArticle
+      m_pclAuteur = pclAuteur
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1586812990953996977
+     type_code : 28
+     code : |1+
+      PROCÉDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bChargeInfo
+     procedure_id : 1586813184227701384
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bChargeInfo (<nIDCommentaire> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDCommentaire (entier sur 8 octets) :<indiquez ici le rôle de nIDCategorie>
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      PROCÉDURE bChargeInfo( nIDCommentaire est un entier sur 8 octets )
+      
+      SI HLitRecherchePremier(Commentaire,IDCommentaire,nIDCommentaire)=Faux ALORS
+      	RENVOYER Faux
+      FIN
+      
+      FichierVersMémoire(objet,Commentaire)
+      
+      // Charge l'article associé
+      SI m_pclArticle=Null ALORS
+      	m_pclArticle = allouer un CArticle
+      	SI m_pclArticle.bChargeInfo(Commentaire.IDArticle)=Faux ALORS
+      		RENVOYER Faux
+      	FIN
+      FIN
+      
+      // Charge l'auteur associé
+      SI m_pclAuteur=Null ALORS
+      	m_pclAuteur = allouer un CAuteur
+      	SI m_pclAuteur.bChargeInfo(Commentaire.IDCompteUtilisateur)=Faux ALORS
+      		RENVOYER Faux
+      	FIN
+      FIN
+      
+      RENVOYER Vrai
+     type : 458752
+   -
+     name : Ajouter
+     procedure_id : 1587919937027077880
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // Ajouter ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE Ajouter()
+      
+      MémoireVersFichier(objet,Commentaire)
+      Commentaire.IDArticle = m_pclArticle.m_nIDArticle
+      Commentaire.IDCompteUtilisateur = m_pclAuteur.m_nIDCompteUtilisateur
+      
+      HAjoute(Commentaire)
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1cf9ce9f
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

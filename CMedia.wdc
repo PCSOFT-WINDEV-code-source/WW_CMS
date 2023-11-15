@@ -1,0 +1,357 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CMedia
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x160c0003019e29ef
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      CMedia est une Classe
+      	m_nIDMedia est un entier sur 8 octets <MAPPING=IDMedia>
+      	m_sTitreMedia est une chaîne <MAPPING=TitreMedia>
+      	m_sTypeMedia est une chaîne <MAPPING=TypeMedia>
+      	m_sFamilleMedia est une chaîne <MAPPING=Famille>
+      	m_sDescription est une chaîne <MAPPING=description>
+      	m_bufContenu est un Buffer
+      	m_nTaille est un entier sur 8
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1588644781467052527
+     type_code : 27
+     code : |1+
+      PROCÉDURE Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1588644781467118063
+     type_code : 28
+     code : |1+
+      PROCÉDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bChargeInfo
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1588645052056280829
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bChargeInfo (<nIDMedia> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDMedia (entier sur 8 octets) :<indiquez ici le rôle de nIDCategorie>
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE bChargeInfo( LOCAL nIDMedia est un entier sur 8 octets )
+      
+      SI HLitRecherchePremier(Media,IDMedia,nIDMedia) ALORS
+      	FichierVersMémoire(objet,Media)
+      	m_nTaille = Val(ExtraitChaîne(HInfoMémo(Media,ContenuMedia),3))	
+      	RENVOYER Vrai
+      FIN
+      
+      RENVOYER Faux
+      
+      CAS ERREUR:
+      ErreurPropage()
+      RENVOYER Faux
+     type : 458752
+   -
+     name : CheminImage
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1588645052056346459
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] CheminImage ( [<nLargeur> est entier [, <nHauteur> est entier]])
+      //
+      // Paramètres :
+      //	nLargeur (entier - valeur par défaut=0) : <indiquez ici le rôle de nLargeur>
+      //	nHauteur (entier - valeur par défaut=0) : <indiquez ici le rôle de nHauteur>
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE CheminImage( nLargeur est un entier = 0, nHauteur est un entier = 0)
+      
+      SI m_nIDMedia=0 ALORS
+      	RENVOYER ""
+      FIN
+      
+      taParam est un tableau associatif de chaînes
+      taParam["id"] = m_nIDMedia
+      SI nLargeur<>0 ALORS taParam["larg"] = nLargeur
+      SI nHauteur<>0 ALORS taParam["haut"] = nHauteur
+      
+      RENVOYER ConstruitURL(pageadresse(get_media),taParam,Faux)
+      
+      CAS ERREUR:
+      ErreurPropage()
+      RENVOYER ""
+     type : 458752
+   -
+     name : s_ListeMedia
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1588645288286091194
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeMedia ( [<sFiltreDescription> est chaîne])
+      //
+      // Paramètres :
+      // 	sFiltreDescription (chaîne ANSI - valeur par défaut="") : <indiquez ici le rôle de sFiltreDescription>
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE PUBLIQUE GLOBALE s_ListeMedia( sFiltreDescription est une chaîne = "" )
+      
+      tabIDMedia est un tableau de entier sur 8 octets
+      
+      POUR TOUT Media
+      	SI sFiltreDescription="" _OU_ Position(Media.Description,sFiltreDescription,1,SansCasse)>0 ALORS
+      		Ajoute(tabIDMedia,Media.IDMedia)
+      	FIN
+      FIN
+      
+      CAS ERREUR:
+      ErreurPropage()
+      
+      FIN:
+      RENVOYER tabIDMedia
+     type : 458752
+   -
+     name : s_ListeFamille
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613900306065649539
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeFamille ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE GLOBALE s_ListeFamille()
+      
+      tabFamille est un tableau de chaîne
+      
+      HExécuteRequête(REQ_ListeFamilleMedia)
+      POUR TOUT REQ_ListeFamilleMedia 
+      	SI REQ_ListeFamilleMedia.Famille<>"" ALORS
+      		Ajoute(tabFamille,REQ_ListeFamilleMedia.Famille)
+      	FIN
+      FIN
+      
+      CAS ERREUR:
+      ErreurPropage()
+      
+      FIN:
+      RENVOYER tabFamille
+      
+     type : 458752
+   -
+     name : s_ListeMediaParFamille
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613900903072731341
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeMediaParFamille (<sNomFamille> est chaîne [, <sFiltreDescription> est chaîne])
+      //
+      // Paramètres :
+      //	sNomFamille (chaîne ANSI) :<indiquez ici le rôle de sNomFamille>
+      // 	sFiltreDescription (chaîne ANSI - valeur par défaut="") : <indiquez ici le rôle de sFiltreDescription>
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE PUBLIQUE GLOBALE s_ListeMediaParFamille( sNomFamille est une chaîne, sFiltreDescription est une chaîne = "" )
+      
+      tabIDMedia est un tableau de entier sur 8 octets
+      
+      POUR TOUT Media AVEC Famille=sNomFamille
+      	SI sFiltreDescription="" _OU_ Position(Media.Description,sFiltreDescription,1,SansCasse)>0 ALORS
+      		Ajoute(tabIDMedia,Media.IDMedia)
+      	FIN
+      FIN
+      
+      CAS ERREUR:
+      ErreurPropage()
+      
+      FIN:
+      RENVOYER tabIDMedia
+      
+     type : 458752
+   -
+     name : s_Supprime
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613904201629943653
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //s_Supprime (<nIDMedia> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDMedia (entier sur 8 octets) :<indiquez ici le rôle de nIDMedia>
+      // Valeur de retour :
+      // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE GLOBALE s_Supprime( nIDMedia est un entier sur 8 )
+      
+      SI HLitRecherchePremier(Media,IDMedia,nIDMedia,hBlocageEcriture) ALORS
+      	HSupprime(Media)
+      FIN
+      
+      CAS ERREUR:
+      ErreurPropage()
+     type : 458752
+   -
+     name : Bloque
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613907251069229887
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Bloque ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE Bloque()
+      
+      HLitRecherchePremier(Media,IDMedia,m_nIDMedia,hBlocageEcriture)
+      
+      CAS ERREUR:
+      	ErreurPropage()
+      	
+     type : 458752
+   -
+     name : Enregistre
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613907251069426917
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Enregistre (<bModifieContenu> est booléen)
+      //
+      // Paramètres :
+      //	bModifieContenu (booléen) : <indiquez ici le rôle de bModifieContenu>
+      // Valeur de retour :
+      // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE Enregistre( bModifieContenu est un booléen )
+      
+      SI m_nIDMedia=0 ALORS
+      	HRAZ(Media)
+      FIN
+      
+      MémoireVersFichier(objet,Media)
+      SI bModifieContenu ALORS
+      	Media.ContenuMedia = m_bufContenu
+      FIN
+      
+      SI m_nIDMedia=0 ALORS
+      	HAjoute(Media)
+      	m_nIDMedia = Media.IDMedia
+      SINON
+      	HModifie(Media)
+      FIN
+      
+      CAS ERREUR:
+      	ErreurPropage()
+      	
+     type : 458752
+  properties :
+   -
+     name : p_CheminImage
+     identifier : 0x160c1067056f2fa5
+     type_code : 103
+     p_codes :
+      -
+        code : |1+
+         PROCÉDURE PUBLIQUE p_CheminImage()
+         
+         RENVOYER CheminImage()
+        type : 1966080
+     template_refs : []
+   -
+     name : p_Taille
+     identifier : 0x1665c07b10ab20c6
+     type_code : 103
+     p_codes :
+      -
+        code : |1+
+         PROCÉDURE PUBLIQUE p_Taille()
+         
+         RENVOYER m_nTaille
+        type : 1966080
+     template_refs : []
+   -
+     name : p_Contenu
+     identifier : 0x1666ae9105cf27cf
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCÉDURE PUBLIQUE p_Contenu()
+         
+         RENVOYER m_bufContenu
+        type : 1966080
+      -
+        code : |1-
+         PROCÉDURE PUBLIQUE p_Contenu(Valeur)
+         
+         m_bufContenu = Valeur
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1ce7ce8f
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

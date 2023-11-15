@@ -1,0 +1,162 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CAuteur
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1605435d043caed5
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      CAuteur est une Classe
+      	hérite de CUtilisateur
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1586748510500138709
+     type_code : 27
+     code : |1+
+      PROCÉDURE Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1586748510500204245
+     type_code : 28
+     code : |1+
+      PROCÉDURE Destructeur()
+      
+     type : 655360
+   -
+     name : s_ListeAuteurs
+     procedure_id : 1586748639349777256
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeAuteurs ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE PUBLIQUE GLOBALE s_ListeAuteurs()
+      
+      tabAuteur est un tableau d'entiers sur 8 octets
+      
+      SI HExécuteRequête(REQ_AUTEURS) ALORS
+      	POUR TOUT REQ_AUTEURS 
+      		Ajoute(tabAuteur,REQ_AUTEURS.IDAuteur)
+      	FIN
+      FIN
+      
+      RENVOYER tabAuteur
+     type : 458752
+   -
+     name : sComptageArticle
+     procedure_id : 1586763164968337000
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sComptageArticle ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCÉDURE sComptageArticle()
+      
+      REQ_NOMBRE_ARTICLE_AUTEUR.pAuteur = m_nIDCompteUtilisateur
+      REQ_NOMBRE_ARTICLE_AUTEUR.pEtat = ETAT_ARTICLE_VALIDE
+      SI HExécuteRequête(REQ_NOMBRE_ARTICLE_AUTEUR) ALORS
+      	SI REQ_NOMBRE_ARTICLE_AUTEUR.Comptage_1=1 ALORS
+      		RENVOYER "1 article"
+      	SINON
+      		RENVOYER ChaîneConstruit("%1 articles",REQ_NOMBRE_ARTICLE_AUTEUR.Comptage_1)
+      	FIN
+      FIN
+      
+      RENVOYER "aucun article"
+     type : 458752
+   -
+     name : ListeArticles
+     procedure_id : 1586771252398356554
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] ListeArticles ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE ListeArticles()
+      
+      tabArticle est un tableau d'entiers sur 8 octets
+      
+      REQ_ARTICLES_AUTEUR.pAuteur = m_nIDCompteUtilisateur
+      REQ_ARTICLES_AUTEUR.pEtat = ETAT_ARTICLE_VALIDE
+      SI HExécuteRequête(REQ_ARTICLES_AUTEUR) ALORS
+      	POUR TOUT REQ_ARTICLES_AUTEUR 
+      		Ajoute(tabArticle,REQ_ARTICLES_AUTEUR.IDArticle)
+      	FIN
+      FIN
+      
+      RENVOYER tabArticle
+      
+      
+     type : 458752
+   -
+     name : CheminImage
+     procedure_id : 1588300484102256045
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] CheminImage ( [<nLargeur> est entier [, <nHauteur> est entier]])
+      //
+      // Paramètres :
+      //	nLargeur (entier - valeur par défaut=0) : <indiquez ici le rôle de nLargeur>
+      //	nHauteur (entier - valeur par défaut=0) : <indiquez ici le rôle de nHauteur>
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      PROCÉDURE CheminImage( nLargeur est un entier = 0, nHauteur est un entier = 0)
+      
+      SI m_nIDPhoto=0 ALORS
+      	RENVOYER "/images/"+PHOTO_DEFAUT
+      FIN
+      
+      taParam est un tableau associatif de chaînes
+      taParam["id"] = m_nIDPhoto
+      SI nLargeur<>0 ALORS taParam["larg"] = nLargeur
+      SI nHauteur<>0 ALORS taParam["haut"] = nHauteur
+      
+      RENVOYER ConstruitURL(PageAdresse(get_media),taParam,Faux)
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1d07ceaf
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

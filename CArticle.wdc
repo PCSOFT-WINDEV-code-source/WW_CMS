@@ -1,0 +1,338 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CArticle
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x16040f3a04e20235
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      CArticle est une Classe
+      	m_nIDArticle est un entier sur 8 octets <MAPPING=IDArticle>
+      	m_sTitreArticle est une chaîne <MAPPING=TitreArticle>
+      	m_sContenuArticle est une chaîne <MAPPING=ContenuArticle>
+      	m_dhDatePublication est une DateHeure <MAPPING=DatePublication>
+      	m_sLoginModérateur est une chaîne <MAPPING=LoginModérateur>
+      	m_nEtatArticle est un entier sur 2 octets <MAPPING=EtatArticle>
+      	m_nIDCatégorie est un entier sur 8 octets <MAPPING=IDCatégorie>
+      	m_dhDateModification est une DateHeure <MAPPING=DateModification>
+      	m_sRésuméArticle est une chaîne <MAPPING=RésuméArticle>
+      	m_sNomPageAffichage est une chaîne <MAPPING=NomPageAffichage>
+      	m_nIDAuteur est un entier sur 8 octets <MAPPING=IDAuteur>
+      	m_nIDImageArticle est un entier sur 8 octets <MAPPING=IDImageArticle>
+      	
+      	m_tabCommentaire est un tableau de CCommentaire dynamique
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1586409710605763125
+     type_code : 27
+     code : |1+
+      PROCÉDURE Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1586409710605828661
+     type_code : 28
+     code : |1+
+      PROCÉDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bChargeInfo
+     procedure_id : 1586409822279132593
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bChargeInfo (<nIDArticle> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDArticle (entier sur 8 octets) :<indiquez ici le rôle de nIDCategorie>
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      PROCÉDURE bChargeInfo( nIDArticle est un entier sur 8 octets )
+      
+      SI HLitRecherchePremier(Article,IDArticle,nIDArticle) ALORS
+      	FichierVersMémoire(objet,Article)
+      	
+      	RENVOYER Vrai
+      FIN
+      
+      RENVOYER Faux
+     type : 458752
+   -
+     name : CheminImage
+     procedure_id : 1586409822279198223
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] CheminImage ( [<nLargeur> est entier [, <nHauteur> est entier]])
+      //
+      // Paramètres :
+      //	nLargeur (entier - valeur par défaut=0) : <indiquez ici le rôle de nLargeur>
+      //	nHauteur (entier - valeur par défaut=0) : <indiquez ici le rôle de nHauteur>
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      PROCÉDURE CheminImage( nLargeur est un entier = 0, nHauteur est un entier = 0)
+      
+      SI m_nIDImageArticle=0 ALORS
+      	RENVOYER ""
+      FIN
+      
+      taParam est un tableau associatif de chaînes
+      taParam["id"] = m_nIDImageArticle
+      SI nLargeur<>0 ALORS taParam["larg"] = nLargeur
+      SI nHauteur<>0 ALORS taParam["haut"] = nHauteur
+      
+      RENVOYER ConstruitURL(PageAdresse(get_media),taParam,Faux)
+     type : 458752
+   -
+     name : s_ListeRecents
+     procedure_id : 1586412665552600915
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeRecents ( [<nTop> est entier])
+      //
+      // Paramètres :
+      //	nTop (entier - valeur par défaut=-1) :<indiquez ici le rôle de nTop>
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE GLOBALE s_ListeRecents( nTop est un entier = -1 )
+      
+      tabArticle est un tableau d'entiers sur 8 octets
+      
+      REQ_DERNIERS_ARTICLES.pEtatArticle = ETAT_ARTICLE_VALIDE
+      REQ_DERNIERS_ARTICLES.pCategorie = Null
+      REQ_DERNIERS_ARTICLES.pTop = (nTop<>-1 ? nTop SINON Null)
+      SI HExécuteRequête(REQ_DERNIERS_ARTICLES) ALORS
+      	POUR TOUT REQ_DERNIERS_ARTICLES 
+      		Ajoute(tabArticle,REQ_DERNIERS_ARTICLES.IDArticle)
+      	FIN
+      FIN
+      
+      RENVOYER tabArticle
+      
+     type : 458752
+   -
+     name : NomAuteur
+     procedure_id : 1586428221929997720
+     type_code : 12
+     code : |1-
+      // Résumé : Retourne le nom de l'auteur d'un article
+      // Syntaxe :
+      //[ <Résultat> = ] NomAuteur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Chaine
+      //
+      PROCÉDURE NomAuteur()
+      
+      pclAuteur est un CUtilisateur dynamique = CUtilisateur::s_pclTrouveUtilisateur(m_nIDAuteur)
+      SI pclAuteur<>Null ALORS
+      	RENVOYER pclAuteur.m_sNomAffichage
+      FIN
+      
+      RENVOYER ""
+     type : 458752
+   -
+     name : NomCatégorie
+     procedure_id : 1586444873535647092
+     type_code : 12
+     code : |1-
+      // Résumé : Retourne le libellé de la catégorie d'un article
+      // Syntaxe :
+      //[ <Résultat> = ] NomCatégorie ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaine
+      //
+      PROCÉDURE NomCatégorie()
+      
+      SI HLitRecherchePremier(Categorie,IDCatégorie,m_nIDCatégorie) ALORS
+      	RENVOYER Categorie.LibelléCatégorie
+      FIN
+      
+      RENVOYER ""
+     type : 458752
+   -
+     name : ListeAutresArticles
+     procedure_id : 1586803507663409600
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] ListeAutresArticles ( [<nTop> est entier])
+      //
+      // Paramètres :
+      //	nTop (entier - valeur par défaut=0) :<indiquez ici le rôle de nTop>
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE ListeAutresArticles( nTop est un entier = 0 )
+      
+      tabArticle est un tableau d'entiers sur 8
+      
+      REQ_ARTICLE_CATEGORIE.pArticle = m_nIDArticle
+      REQ_ARTICLE_CATEGORIE.pCategorie = m_nIDCatégorie
+      REQ_ARTICLE_CATEGORIE.pEtat = col_cms.ETAT_ARTICLE_VALIDE
+      REQ_ARTICLE_CATEGORIE.ptop = (nTop>0 ? nTop SINON Null)
+      SI HExécuteRequête(REQ_ARTICLE_CATEGORIE) ALORS
+      	POUR TOUT REQ_ARTICLE_CATEGORIE 
+      		Ajoute(tabArticle,REQ_ARTICLE_CATEGORIE.IDArticle)
+      	FIN
+      FIN
+      
+      RENVOYER tabArticle
+     type : 458752
+   -
+     name : ChargeCommentaire
+     procedure_id : 1586813429041418091
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //ChargeCommentaire ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE ChargeCommentaire()
+      
+      SupprimeTout(m_tabCommentaire)
+      
+      pclCommentaire est un CCommentaire dynamique
+      REQ_COMMENTAIRES_ARTICLE.pIDArticle = m_nIDArticle
+      SI HExécuteRequête(REQ_COMMENTAIRES_ARTICLE) ALORS
+      	POUR TOUT REQ_COMMENTAIRES_ARTICLE
+      		pclCommentaire = allouer un CCommentaire(objet)
+      		SI pclCommentaire.bChargeInfo(REQ_COMMENTAIRES_ARTICLE.IDCommentaire) ALORS
+      			Ajoute(m_tabCommentaire,pclCommentaire)
+      		FIN
+      	FIN
+      FIN
+      
+      
+     type : 458752
+   -
+     name : s_ListeAModerer
+     procedure_id : 1624620544331500222
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeAModerer ( [<sListeCategorie> est chaîne])
+      //
+      // Paramètres :
+      //	sListeCategorie (chaîne ANSI - valeur par défaut="*") :<indiquez ici le rôle de sListeCategorie>
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE PUBLIQUE GLOBALE s_ListeAModerer( sListeCategorie est une chaîne = "*" )
+      
+      tabArticle est un tableau d'entiers sur 8 octets
+      
+      SI sListeCategorie="*" ALORS
+      	REQ_ArticleAttenteModeration.pListeCategorieModeration = Null
+      SINON
+      	REQ_ArticleAttenteModeration.pListeCategorieModeration = sListeCategorie
+      FIN
+      
+      SI HExécuteRequête(REQ_ArticleAttenteModeration,hRequêteDéfaut) ALORS
+      	POUR TOUT REQ_ArticleAttenteModeration 
+      		Ajoute(tabArticle,REQ_ArticleAttenteModeration.IDArticle)
+      	FIN
+      FIN
+      
+      RENVOYER tabArticle
+      
+      
+      
+      
+     type : 458752
+   -
+     name : Publie
+     procedure_id : 1624625376190756103
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // Publie ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE Publie()
+      
+      SI HLitRecherchePremier(Article,IDArticle,m_nIDArticle,hBlocageEcriture) ALORS
+      	Article.EtatArticle = ETAT_ARTICLE_VALIDE
+      	Article.DatePublication = DateSys()+HeureSys()
+      	Article.LoginModérateur = pclUtilisateurCourant().m_sNomAffichage
+      	HModifie(Article)
+      FIN
+      
+      
+     type : 458752
+   -
+     name : Enregistre
+     procedure_id : 1624664571998877641
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // Enregistre ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE Enregistre()
+      
+      SI m_nIDArticle=0 _OU_ HLitRecherchePremier(Article,IDArticle,m_nIDArticle,hBlocageEcriture) ALORS
+      	MémoireVersFichier(objet,Article)
+      	
+      	SI m_nIDArticle=0 ALORS
+      		HAjoute(Article)
+      		m_nIDArticle = Article.IDArticle
+      	SINON
+      		HModifie(Article)
+      	FIN
+      FIN
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1cadce70
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,358 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CCategorie
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1603fc400210e09b
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      CCategorie est une Classe
+      	m_nIDCatégorie est un entier sur 8 octets <MAPPING=IDCatégorie>
+      	m_sLibelléCatégorie est une chaîne <MAPPING=LibelléCatégorie>
+      	m_sDescriptionCatégorie est une chaîne <MAPPING=DescriptionCatégorie>
+      	m_nIDMedia est un entier sur 8 octets <MAPPING=IDMedia>
+      	m_nIDCatégorieParente est un entier sur 8 octets <MAPPING=IDCatégorieParente>
+      	m_nRang est un entier <MAPPING=Rang>
+      	
+      	m_nProfondeur est un entier
+      	
+      	m_tabCategorieEnfant est un tableau de CCategorie dynamique
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1586388845607379099
+     type_code : 27
+     code : |1+
+      PROCÉDURE Constructeur()
+      
+      m_nProfondeur = -1	// Profondeur pas encore calculée
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1586388845607444635
+     type_code : 28
+     code : |1+
+      PROCÉDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bChargeInfo
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1586389184910005805
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bChargeInfo (<nIDCategorie> est entier sur 8 octets [, <bChargeEnfant> est booléen])
+      //
+      // Paramètres :
+      //	nIDCategorie (entier sur 8 octets) :<indiquez ici le rôle de nIDCategorie>
+      //	bChargeEnfant (booléen - valeur par défaut=0) :<indiquez ici le rôle de bChargeEnfant>
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE bChargeInfo( nIDCategorie est un entier sur 8 octets, bChargeEnfant est un booléen = Faux )
+      
+      HLitRecherchePremier(Categorie,IDCatégorie,nIDCategorie)
+      FichierVersMémoire(objet,Categorie)
+      
+      SI bChargeEnfant ALORS
+      	tabIDEnfant est un tableau d'entiers sur 8 octets = ::s_ListeEnfants(:m_nIDCatégorie)
+      	POUR TOUT nIDCat DE tabIDEnfant
+      		clCat est un CCategorie
+      		clCat.bChargeInfo(nIDCat,bChargeEnfant)
+      		Ajoute(m_tabCategorieEnfant,clCat)
+      	FIN
+      FIN
+      
+      m_nProfondeur = -1	// Profondeur pas encore calculée
+      
+      RENVOYER Vrai
+      
+      CAS ERREUR:
+      	ErreurPropage()
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : s_ListeEnfants
+     procedure_id : 1586389936529915873
+     type_code : 12
+     code : |1-
+      // Résumé : Retourne la liste des catégories filles d'une catégorie données
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeEnfants ( [<nIDParent> est entier sur 8 octets])
+      //
+      // Paramètres :
+      //	nIDParent (entier sur 8 octets - valeur par défaut=0) :<indiquez ici le rôle de nIDParent>
+      // Valeur de retour :
+      // 	tableau : tableau des identifiants de catégories
+      //
+      //	nIDParent (entier sur 8 octets - valeur par défaut=0) :IDentifiant de la catégorie parente (0 pour les catégories racine)
+      PROCÉDURE GLOBALE s_ListeEnfants(nIDParent est un entier sur 8 = 0)
+      
+      tabCategorie est un tableau d'entiers sur 8 octets
+      
+      POUR TOUT Categorie AVEC IDCatégorieParente = nIDParent
+      	Ajoute(tabCategorie,Categorie.IDCatégorie)
+      FIN
+      
+      RENVOYER tabCategorie
+     type : 458752
+   -
+     name : CheminImage
+     procedure_id : 1586392681017016813
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] CheminImage ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      PROCÉDURE CheminImage()
+      
+      SI m_nIDMedia=0 ALORS
+      	RENVOYER ""
+      FIN
+      
+      taParam est un tableau associatif de chaînes
+      taParam["id"] = m_nIDMedia
+      taParam["larg"] = 80
+      taParam["haut"] = 80
+      
+      RENVOYER ConstruitURL(PageAdresse(get_media),taParam,Faux)
+     type : 458752
+   -
+     name : ListeArticles
+     procedure_id : 1586693586422303759
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] ListeArticles ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE ListeArticles()
+      
+      tabArticle est un tableau d'entiers sur 8 octets
+      
+      REQ_DERNIERS_ARTICLES.pEtatArticle = ETAT_ARTICLE_VALIDE
+      REQ_DERNIERS_ARTICLES.pCategorie = m_nIDCatégorie
+      REQ_DERNIERS_ARTICLES.pTop = Null
+      SI HExécuteRequête(REQ_DERNIERS_ARTICLES) ALORS
+      	POUR TOUT REQ_DERNIERS_ARTICLES 
+      		Ajoute(tabArticle,REQ_DERNIERS_ARTICLES.IDArticle)
+      	FIN
+      FIN
+      
+      RENVOYER tabArticle
+      
+      
+     type : 458752
+   -
+     name : pCategorieParente
+     procedure_id : 1586698001659607764
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pCategorieParente ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCÉDURE pCategorieParente()
+      
+      SI m_nIDCatégorieParente=0 ALORS
+      	RENVOYER Null
+      FIN
+      
+      clParent est un CCategorie
+      SI clParent.bChargeInfo(m_nIDCatégorieParente) ALORS
+      	RENVOYER clParent
+      FIN
+      
+      RENVOYER Null
+     type : 458752
+   -
+     name : s_ListeTout
+     procedure_id : 1588543437453466776
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeTout ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE PUBLIQUE GLOBALE s_ListeTout()
+      
+      tabIdCategorie est un tableau de entier sur 8 octets
+      
+      POUR TOUT Categorie
+      	Ajoute(tabIdCategorie,Categorie.IDCatégorie)
+      FIN
+      
+      RENVOYER tabIdCategorie
+     type : 458752
+   -
+     name : s_ListeRacine
+     procedure_id : 1588561759838549223
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] s_ListeRacine ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : // 	Aucune
+      //
+      PROCÉDURE GLOBALE s_ListeRacine()
+      
+      tabCategorie est un tableau d'entiers sur 8 octets
+      
+      POUR TOUT Categorie AVEC IDCatégorieParente = 0
+      	Ajoute(tabCategorie,Categorie.IDCatégorie)
+      FIN
+      
+      RENVOYER tabCategorie
+      
+     type : 458752
+   -
+     name : Bloque
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613870975609912501
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Bloque ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE Bloque()
+      
+      HLitRecherchePremier(Categorie,IDCatégorie,m_nIDCatégorie,hBlocageEcriture)
+      
+      CAS ERREUR:
+      	ErreurPropage()
+      	
+     type : 458752
+   -
+     name : Enregistre
+     internal_properties : CAAAAAgAAABUHz8hVhFi02/J7EhBrMlSNO0MeAqWBppfCjnxm/4kgJdm7XWgB5T6wjMexC1lxpG0E9/miOIxDqpCyq3t86PoLtBkATH/1oB8x09XjEnNP/qUDpwcbSPg0NLupmnY36w8JgJ/5axk6CsPJRVV4Ib+UFiKlFTTIkF739C1c2Up+mtV1Q==
+     procedure_id : 1613870975609978334
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Enregistre ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //// Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCÉDURE Enregistre()
+      
+      SI m_nIDCatégorie=0 ALORS
+      	// Si le rang n'a pas été précisé, on le calcule automatiquement
+      	SI m_nRang=0 ALORS
+      		POUR TOUT Categorie AVEC IDCatégorieParente = m_nIDCatégorieParente
+      			SI Categorie.Rang>=m_nRang ALORS
+      				m_nRang = Categorie.Rang+1
+      			FIN
+      		FIN
+      	FIN
+      FIN
+      
+      SI m_nIDCatégorie=0 ALORS
+      	HRAZ(Categorie)
+      FIN
+      
+      MémoireVersFichier(objet,Categorie)
+      
+      SI m_nIDCatégorie=0 ALORS
+      	HAjoute(Categorie)
+      	m_nIDCatégorie = Categorie.IDCatégorie
+      SINON
+      	HModifie(Categorie)
+      FIN
+      
+      CAS ERREUR:
+      	ErreurPropage()
+      	
+     type : 458752
+   -
+     name : Profondeur
+     procedure_id : 1624658314210212117
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] Profondeur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      PROCÉDURE Profondeur()
+      
+      // Si la profondeur n'a pas encore été calculée, on l'évalue maintenant
+      SI m_nProfondeur=-1 ALORS
+      	m_nProfondeur = 0
+      	pclParent est un CCategorie dynamique = :pCategorieParente()
+      	TANTQUE pclParent<>Null
+      		m_nProfondeur++
+      		pclParent = pclParent:pCategorieParente()
+      	FIN
+      FIN
+      
+      RENVOYER m_nProfondeur
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1c91ce60
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

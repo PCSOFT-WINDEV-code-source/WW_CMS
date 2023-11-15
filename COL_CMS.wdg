@@ -1,0 +1,213 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_CMS
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1faacbc0071883a1
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      CONSTANT
+      	// Constantes des états possibles pour les articles (rubrique Article.EtatArticle)
+      	ARTICLE_BROUILLON = 0
+      	ARTICLE_BROUILLON_DESC = "Brouillon"
+      	ARTICLE_ATTENTE_MODERATION = 1
+      	ARTICLE_ATTENTE_MODERATION_DESC = "En attente de modération"
+      	ARTICLE_PUBLIE = 2
+      	ARTICLE_PUBLIE_DESC = "Publié"
+      	ARTICLE_ARCHIVE = 3
+      	ARTICLE_ARCHIVE_DESC =  "Archivé"
+      	
+      	ETAT_ARTICLE_BROUILLON = 1
+      	ETAT_ARTICLE_ATTENTE_MODERATION = 2
+      	ETAT_ARTICLE_VALIDE = 3
+      	ETAT_ARTICLE_ARCHIVE = 4	
+      	
+      	// ---- Variables pour la modération des articles
+      	MOD_CONTENU_MAIL = [
+      	Bonjour, 
+      	
+      	L'article <%1> vient d'être créé (le %2) par %3.
+      	
+      	
+      	]
+      	// Dans cette variable, %1 correspond au titre de l'article, %2 correspond à la date de modif de l'article, et %3 correspond à l'utilisateur
+      	
+      	NOTIFICATION_CREATION = [
+      	Bonjour, 
+      	
+      	Un article vient d'être créé dans la catégorie <%1>.
+      	Il s'agit de l'article : "%2"
+      	
+      	Vous recevez cette notification car vous êtes abonné aux modifications de la catégorie %1.
+      	]
+      	NOTIFICATION_MODIFICATION = [
+      	Bonjour, 
+      	
+      	Un article vient d'être modifié dans la catégorie <%1>.
+      	Il s'agit de l'article : "%2"
+      	
+      	Vous recevez cette notification car vous êtes abonné aux modifications de la catégorie %1.
+      	
+      	]
+      	SUJET_NOTIFICATIONS = "Notification d'abonnement pour la catégorie <%1>"
+      	
+      	SUJET_MOTDEPASSE = "Récupération de votre mot de passe"
+      	RECUPERATION_MDP = [
+      	Bonjour, 
+      	
+      	Vous avez demandé à recevoir votre mot de passe par email.
+      	Voici vos informations de connexion :
+      	Nom d'utilisateur : <%1>
+      	Mot de passe : <%2>
+      	
+      	Nous vous conseillons de changer de mot de passe à votre prochaine visite sur le site.
+      	]
+      	
+      	
+      	// Constantes des noms de droits sur le site - ces droits s'ajoutent à ceux définis dans la gestion des comptes
+      	DROIT_MODERATEUR = "MODERATEUR"		// Les utilisateurs qui possèdent ce droit peuvent modérer les catégories dont l'identifiant est le paramètre du droit
+      	// Déclarer ici d'autres noms de droits si nécessaire
+      	
+      	// Constantes des paramètres globaux du site - ce paramètres sont conservés dans la base de données
+      	CMS_NOM_SITE = "SITE_NAME"
+      	CMS_URL_PUBLIQUE = "SITE_PUBLIC_URL"
+      	CMS_DESCRIPTION = "SITE_DESCRIPTION"
+      	
+      	CMS_EXPEDITEUR_MODERATION = "MOD_SENDER"
+      	CMS_EMAIL_MODERATION = "MOD_EMAIL"
+      	CMS_EXPEDITEUR_NOTIFICATION = "NOTIF_SENDER"
+      	CMS_EMAIL_NOTIFICATION = "NOTIF_EMAIL"
+      	CMS_EXPEDITEUR_MOT_DE_PASSE = "PASSWD_SENDER"
+      	CMS_EMAIL_MOT_DE_PASSE = "PASSWD_EMAIL"
+      	CMS_SMTP_SERVEUR = "SMTP_SERVER"
+      	CMS_SMTP_PORT = "SMTP_PORT"
+      	CMS_SMTP_UTILISATEUR = "SMTP_USER"
+      	CMS_SMTP_PASSE = "SMTP_PASSWD"
+      	CMS_SMTP_PROTO = "SMTP_PROTO"
+      		
+      	CMS_MODERATION_ACTIVE = "MODERATION"
+      
+      	CMS_TITRE_FLUX_RSS = "RSS_TITLE"
+      	CMS_DESCRIPTION_FLUX_RSS = "RSS_DESCRIPTION"
+      	
+      	// Fichiers images par défaut
+      	PHOTO_DEFAUT = "personne.png"
+      FIN
+      
+      // ---- Variables de présentation du CMS
+      gtaTabAffichage est un tableau associatif de chaînes					// Nom des pages de présentation d'articles
+      
+     type : 720896
+  procedures :
+   -
+     name : InitCMS
+     procedure_id : 2281860186830177185
+     type_code : 15
+     code : |1-
+      // Résumé : Initialisation du CMS
+      // Syntaxe :
+      //[ <Résultat> = ] InitCMS ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      //
+      PROCÉDURE InitCMS()
+      
+      // Déclaration des droits gérés par le site
+      DeclareDroit(DROIT_ADMINSITE,"Administration du site")
+      DeclareDroit(DROIT_MODERATEUR,"Modérateur d'une catégorie")
+      
+      // Construction de la table des pages de présentation
+      gtaTabAffichage["Présentation simple"] = "article_simple"
+      gtaTabAffichage["Article complet"] = "article"
+      gtaTabAffichage[""] = "article"	// Page par défaut
+      		
+     type : 458752
+   -
+     name : bAppelAJAX
+     procedure_id : 2282060830446170997
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bAppelAJAX ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCÉDURE bAppelAJAX()
+      
+      RENVOYER (PageParamètre("WD_ACTION_")[="AJAX")
+     type : 458752
+   -
+     name : bAppelIMAGE
+     procedure_id : 2282063038060989769
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bAppelIMAGE ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCÉDURE bAppelIMAGE()
+      
+      RENVOYER PageParamètre("WD_ACTION_")="IMAGE"
+     type : 458752
+   -
+     name : TraiteErreur_Defaut
+     procedure_id : 1614235240622513869
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // TraiteErreur_Defaut ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE TraiteErreur_Defaut()
+      
+      sMessage est une chaîne = "Une erreur interne s'est produite."+RC+"Le responsable a été informé."+RC+"Merci de réessayer plus tard."+RC
+      SI EnModeTest() ALORS
+      	sMessage += ErreurInfo(errComplet)
+      FIN
+      
+      Erreur(sMessage)
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_ProcéduresGlobales1
+resources :
+ string_res :
+  identifier : 0x1fc50e7f1d1bcebe
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
+associated_test :
+ name : TEST_CMS.wxt

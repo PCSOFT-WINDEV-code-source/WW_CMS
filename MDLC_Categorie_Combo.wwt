@@ -1,0 +1,217 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : MDLC_Categorie_Combo
+ major_version : 28
+ minor_version : 0
+ type : 65543
+ description : ""
+ subtype : 0
+page :
+ name : MDLC_Categorie_Combo
+ identifier : 0x2665a05c3995a608
+ internal_properties : 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
+ properties : {}
+ controls :
+  -
+    name : MDLC_Categorie_Combo
+    identifier : 0x2665a05c3996a608
+    internal_properties : CAAAAAgAAAAABNsstyZ1Q/6RmspUDWOWULxe7U+T5S3gO6YL59cSX3nRFhtvHLDfiAL1uK/qeeZk8WtuGGlfc1ImTq2PeIq4+bZgqFt2dmgxEg/P7awfgkRr33cgDFZYnFh68tKnxgbWe4gg6iB9qittaGeGCEbmfTAgqYXSfkHGenPIuiexuLY9KliJnB5N4FnY9vA6wHIkWvGu2QQdSG6WuIo1oCKg/r/1sFJWbJvMTfuSsUJdIduC+wVS0ui2kLqzVKTwjVg7GDUPVmPJPbMGntySPnu8g/VUHFc8lFL0yxIU7K3CSeYZ7Taw3tfyC3qpIzS46GNSNOFySS+CCmtIFR0nxyakhMPzgFmZ9lrGy03S9Am/LicuJVFneOKDGBHVW9VBJ2X49f2fgh1zJESUaM2UZ+XsqCs9iLJgB90UzVpDf0HgEOSy1C/GGEy6M01UFPheyeITWCpWEdObZDPdK6uWSfJ4i08CdT+DCyrYezZ8ENsljKHO6bWaGVz7CxkaRGH+BvNI/H+3kg9JPJF119jmyKDjhi5LQXFzBRkuq97Cg1y8fk1Bdr0lD4YmQH4ck33gwzg9P88P1wbkNiXqvHK/zEjQDLodmR1lwk5IAWk1kBw8GxcNUW8zeZ8dB8hpRDDyCTvq6YSIpkYfp0qz7ZSo8W4/Wn5+X4gRvZVh21KZf3M+qbKoU7b507qoAu4nifJ2CtZd9xN1rppS/hZ+WX7BVfPnbpJhpOZlj9p0aHlZKWqgrQ8GjcTocgMV2MuXk2r0o8jBgegVJ2CQAy08q9pgAI3Tcv9sKyXW2jbyA+H1xsVxg7WERmCCYjZf1WwdKrm4VIjDUagwZKZKlAfkbgciZQbXgFhZyvNFbRcgJmPXjqXx2FeJihk0cB5CKA==
+    properties :
+     width : 312
+     height : 66
+    controls :
+     -
+       name : COMBO_Parent
+       identifier : 0x2665a06439a5c4cb
+       internal_properties : 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
+       properties :
+        x : 6
+        y : 30
+        width : 300
+        height : 30
+       content :
+        identifier : 0x2f3fd106f7ef28d8
+        internal_properties : CAAAAAgAAACIhdAw3is/TeFWdu7+nCjkWr2dJsUhiRWytxZyanilnDJdZtCvLh4jOS30tgTuU0zf+INqO5PDEqxM23zn/cW8KOf5Wf/5g9v0c0mBcjMNQKtpRCMy18ZUEkzIMIx1hA7cm5Jv2rylItC/vjOIVeIdAi3TDDUiXjrgIVCIHMICr54A598UC+htvK51e9sczenXcwb9k2vuISkHilJt5kKQq4z/AsLA9tR+XOUbLmFupG6toYKbss7335JpLY6Da+gIg8BTOEEqOCKqsPaL/yK7PdS4oH5lXBYrJEr3lkyVBQ6iQCMZWVbwCfEjsje3CQeNupBtZUcVOMzDxDabPA==
+        properties : {}
+        type : 7
+       type : 14
+       code_elements :
+        type_code : 23
+        alias : C1
+        p_codes :
+         -
+           type : 851997
+           enabled : false
+         -
+           type : 852010
+           role : N
+         -
+           type : 851983
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           type : 852015
+         -
+           type : 1310767
+           enabled : false
+         -
+           type : 852150
+           role : N
+           enabled : false
+         -
+           type : 852009
+           role : N
+         -
+           type : 852084
+           role : N
+           enabled : false
+         -
+           type : 852085
+           role : N
+           enabled : false
+     -
+       name : LIB_Parent
+       identifier : 0x2697bd68a94a8793
+       internal_properties : CAAAAAgAAABxcIqgUucDmhXjw9pTZPP95kUthOqxnG9XN5M9FvkOUW7E7ndFZRjgXRiBeAhbB9zTPyskTC0M2DJMWmn6+O4rMo4y0W1A4xW5j9IYmjW8nGWb/VFYyTkaJg9c3N6lPk2rP/7ReXhA4hanxitAc27sEzV/2pVQb12KwbV5wDAAtkr1LvCxRaV7WhyARKTJW67tyyb00rQXyXvlgCa77jnloSwTpyoLtdeMBCd7OgX9tX7GuizO01rARbKUhthBwQUasgvfUfQSwad/HgMTTo6symNZ7ne9eawwM7z7/B402FK9x+4q5jTCCji6dD8+CMJ8btuhNetAZs/EqJmLL2GiklHa3Ou+60DHKwtWJ9enzx6RIj8zxIYzSO9sisF7hM0FYEur3VEZApcz3KC/DdB8CvMbnzk7FE26HX3W6rjKJwP6qIrykIq5UJGu6OU/06jlXxMhsF3bkaGfD3J1XiFYssx+CGgQP653Di1xdwqDMouL/4Uuhs1oo7lXBYjHhhX84tw7o75HZPKi5FYf2s5vZ3sL461g33h30gNoW2s9Z41ukZlc337HBhbOqbjU5h8MqGUgeRN3BwwvZgKHn9xtia/6CRb0TFhkJuSO8j2g1g6XZFEiM+rXh6RAjPFYNN97xxvSS76GfeIJK2Hstl2y1nXmj3ELOAzlCmsFmbGoTh7x5nBb25ezOVjPIRiLJePtOKR7vaktK4xa/tq75jEr4JpHRNod1svgjA96OrI3bC37Ohx4eKJAK58JWBghlznPOxVonhjuYzLKYtwTI9UFMZrYJluaiC9tcbXskdWgSLCQBYwKVgk3UYb7l0RHL9lIZMt+incnkc4DoNjKox/6kblfKzrJqaXl/WIBm97wIbgaAlUgyMyx/8iNz4mgVxBdYM7CR+TcnMpGs+El7HBo/0LJA8p+sSDCQQ8CgOxFLmDa/fhoDG5uGKagY1jw7OrH1REztHIMTn0P7JFjGOgDtRON1IvS+fE5xJn42NkYL4uNh+JHEH7lCCwM3d0akc5F8BXI02skwbyeS29ECBywfErKMyYnNxGHBnbzmnbYcctqY5Z3EWmazvDXRIQacK0anW5yEnqe4IOtfVpYG3DJ2g+yTZbrVOqtRbPHjYUgI59CBngcy7YKCbr5tNP3kVNOCXmLk1itImlMet5AdnZ/xYaXkVw+xnJoDfmvFyiYRI/jBzHJ+TXse0RcX5Dsj71u9ofiDhTuSxcmq5xXrogR7DrgpYkcAOgcTXO0DKjkOp+pcsvQFz8HJl9fYFTvjlPxjvrpeY6fEhYERaPhR56FcijGMyyxqNmkhNeDmY+MOVJHeveufov3e1uy8Nel6FMYKw+PwMsSjEsG+MWFDrFcUWWi5EOPf4nZBeZjlAjA4ZTzYonDZ9KhVNGzWedxO9ox2Z9NDlx6L5NxLIkMaK+zYRSojCisdI3UfnOxO98dnxT38BUwVZ5WHA5G3EBHI3fTNyBVQ9a09zpx9VSIKO63HdUkI0qsrAzcRTWlqYSNNYaeacfqZQVsuC46YwHaFHg77VX0e1ZOrTXm3SK9FfTMqkZwkkSh/zoz41TEkttAkJxHdlPemojPjL7HWh0w7hAU0nsbAPjy1SCgK0Grv5BX6LxmU7ry2Uwvbor36MMf74r4Ip69Cq88LQF06z5fts4y5KfoDg0j5PkXok1neRh3Y0O0i4Gji2D4E+aL8lH5NGnsTsuiitu5jU/7JDwFdxRFHXQC6n4dMNhUfpcIzbRKeYcl2CpjeRRk/hwCDcIJMueVbiV0oORZLuiy1Cd9TPQvcjnpHsSfgDJMfU33Fu8PH1iCO2SchlGLnHZvIRmOXvM=
+       properties :
+        x : 6
+        y : 6
+        width : 205
+        height : 24
+       type : 3
+       code_elements :
+        type_code : 2
+        alias : C3
+        p_codes : []
+    type : 42
+    code_elements :
+     type_code : 92
+     alias : C2
+     p_codes :
+      -
+        type : 852298
+        role : N
+      -
+        type : 851999
+        role : N
+      -
+        type : 852227
+        enabled : false
+      -
+        type : 1310979
+        enabled : false
+      -
+        type : 852228
+        role : N
+        enabled : false
+      -
+        type : 852217
+        role : N
+        enabled : false
+ type : 1
+ languages :
+  - fr-FR
+ code_elements :
+  type_code : 91
+  p_codes :
+   -
+     type : 852298
+     role : N
+   -
+     type : 851999
+     role : N
+   -
+     type : 852000
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852167
+   -
+     type : 852169
+     role : N
+   -
+     type : 852225
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852227
+   -
+     type : 1310979
+     enabled : false
+   -
+     type : 852228
+     role : N
+  procedures :
+   -
+     name : _RemplirComboCategorie
+     procedure_id : 1613872676424107644
+     type_code : 14
+     code : |1-
+      // Résumé : Remplit une branche de l'arbre des catégories et se rappelle récursivement
+      // Syntaxe :
+      //_RemplirComboCategorie (<nIDParent> est entier sur 8 octets, <nIDIgnore> est entier sur 8 octets, <nProfondeur> est entier)
+      //
+      // Paramètres :
+      //	nIDParent (entier sur 8 octets) :Identifiant de la branche courante
+      //	nIDIgnore (entier sur 8 octets) :<indiquez ici le rôle de sCheminEnCours>
+      //	nProfondeur (entier) : <indiquez ici le rôle de nProfondeur>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE PRIVÉE _RemplirComboCategorie( nIDParent est un entier sur 8, nIDIgnore est un entier sur 8, nProfondeur est un entier )
+      
+      tabCategorie est un tableau d'entiers sur 8 octets = CCategorie::s_ListeEnfants(nIDParent)
+      clCateg est un CCategorie
+      nIDCatagorie est un entier sur 8
+      POUR TOUT nIDCatagorie DE tabCategorie 
+      	SI nIDCatagorie<>nIDIgnore ALORS
+      		// Ajout d'une catégorie
+      		SI clCateg.bChargeInfo(nIDCatagorie) ALORS
+      			ListeAjoute(COMBO_Parent,Répète("    ",nProfondeur)+clCateg.m_sLibelléCatégorie+gLien(nIDCatagorie))
+      			
+      			// Appel récursif
+      			_RemplirComboCategorie(nIDCatagorie,nIDIgnore,nProfondeur+1)
+      		FIN
+      	FIN
+      FIN
+     type : 458752
+   -
+     name : RemplirComboCategorie
+     procedure_id : 1613872676424173320
+     type_code : 14
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //RemplirComboCategorie (<nIDIgnore> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIDIgnore (entier sur 8 octets) :<indiquez ici le rôle de nIDBase>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE RemplirComboCategorie( nIDIgnore est un entier sur 8 octets )
+      
+      ListeSupprimeTout(COMBO_Parent)
+      gLienActive(COMBO_Parent,Vrai)
+      
+      ListeAjoute(COMBO_Parent,"<aucune>"+gLien(0))
+      
+      _RemplirComboCategorie(0,nIDIgnore,0)
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : MDLC_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fc50e901e121107
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+webification :
+ internal_properties : CAAAAAgAAACYzxT95H3qP7nIys4LqA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe
